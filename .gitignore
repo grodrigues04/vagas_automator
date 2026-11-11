@@ -1,0 +1,11 @@
+.env
+data/out/
+data/logs/
+data/state/
+__pycache__/
+
+# Personal data of the candidate: never published (the repository is public)
+data/prompt.txt
+data/curriculo.pdf
+data/memoria/
+result-example/

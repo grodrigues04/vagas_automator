@@ -1,0 +1,19 @@
+name: vagas-automator
+
+services:
+  # Runs Claude on Thursdays at 21:00 and sends the report through interface-personal-whats.
+  # Claude runs as `node` with only its own token (see runner/run-as-claude-user.sh); the MongoDB
+  # URI and the encryption password are visible only to the root processes.
+  vagas-automator:
+    build: ./runner
+    container_name: vagas-automator
+    restart: unless-stopped
+    environment:
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-opus-5-5}
+      MONGO_URI: ${MONGO_URI:?MONGO_URI is required}
+      ENCRYPTION_PASSWORD: ${ENCRYPTION_PASSWORD:?ENCRYPTION_PASSWORD is required}
+      VAGAS_RECIPIENT: ${VAGAS_RECIPIENT:-}
+      TZ: America/Sao_Paulo
+    volumes:
+      - ./data:/data

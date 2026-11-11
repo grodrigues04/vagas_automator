@@ -1,0 +1,199 @@
+<!doctype html>
+<!--
+  STRUCTURE MODEL of the job report. Copy this structure and these class names;
+  replace every sample text with this run's data. Keep the stylesheet link as is
+  and do not add other CSS.
+
+  Page order:
+    1. cover (title, legend, "Resumo desta rodada", "Por onde começar")
+    2. "Vagas no Brasil"                      verified and unconfirmed cards, by fit
+    3. "Seleções públicas"                    cards
+    4. "Vagas internacionais"                 cards, pay with BRL conversion
+    5. "Ainda abertas de relatórios anteriores" cards with class "reported"
+    6. "Quase lá · rejeitadas por pouco"      cards with class "rejected"
+    7. one "Kit de candidatura" page per kit
+    8. "Registro da execução"
+  A section with no roles keeps its title and one <p class="empty-note"> line.
+
+  Card status classes: verified (Verificada), unconfirmed (Não confirmada),
+  rejected (Rejeitada), reported (Já enviada). Fields: pick the 4 to 6 most
+  useful for that role (TIPO, MODO, HORÁRIO, BOLSA, BENEFÍCIOS, INSCRIÇÕES ATÉ,
+  CURSOS, REQUISITO, IDIOMAS, PROVA, DESLOCAMENTO...).
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Relatório de vagas · 06/11/2026</title>
+<link rel="stylesheet" href="file:///data/relatorio-modelo/estilo.css">
+</head>
+<body>
+<div class="footer-text">Vagas para Giovana Sato Fudo · 06/11/2026</div>
+
+<!-- 1. COVER -->
+<section class="page">
+  <h1 class="cover-title">Vagas para você, Giovana</h1>
+  <p class="cover-subtitle">06/11/2026 · bolsa mínima R$ 1.500 · manhãs, até 6h · remoto ou Grande Florianópolis</p>
+
+  <div class="legend">
+    <div class="legend-item"><span class="pill verified">Verificada</span> ativa no site da empresa.</div>
+    <div class="legend-item"><span class="pill unconfirmed">Não confirmada</span> não consegui abrir a página.</div>
+    <div class="legend-item"><span class="pill rejected">Rejeitada</span> ficou de fora por pouco.</div>
+  </div>
+
+  <div class="summary-box">
+    <h2>Resumo desta rodada</h2>
+    <p>Entrou <strong>uma vaga nova verificada</strong>: o estágio remoto da <strong>WayCarbon</strong> (horário flexível, qualquer curso).</p>
+    <p>O que mais derrubou vagas foi <strong>curso</strong> e <strong>horário</strong>.</p>
+    <p><strong>Seleções públicas:</strong> nenhuma aberta que aceite Letras.</p>
+    <p><strong>Internacional:</strong> nada passou (freelance ou residência fora do Brasil).</p>
+  </div>
+
+  <div class="start-box">
+    <h2>Por onde começar</h2>
+    <div class="start-item">
+      <div class="start-number">1</div>
+      <div>
+        <div class="start-title">WayCarbon, Estágio em Sustentabilidade</div>
+        <div class="start-detail">Remoto, horário flexível, qualquer curso. Inscrições até 04/12.</div>
+        <a href="https://waycarbon.gupy.io/">Abrir vaga</a>
+      </div>
+    </div>
+    <p class="start-note">Não há outra vaga verificada com fit a partir de 72 nesta rodada.</p>
+  </div>
+</section>
+
+<!-- 2. BRAZIL -->
+<section class="page">
+  <h1 class="section-title">Vagas no Brasil</h1>
+  <p class="section-subtitle">Ordenadas por fit. Só as verificadas têm kit.</p>
+
+  <div class="card verified">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Estágio em Sustentabilidade - Mudança do Clima</h2>
+        <p class="card-company">WayCarbon · consultoria em sustentabilidade</p>
+      </div>
+      <div class="card-badges"><span class="pill verified">Verificada</span><span class="pill fit">Fit 74</span></div>
+    </div>
+    <div class="fields">
+      <div class="field"><div class="field-label">Tipo</div><div class="field-value">Estágio (TCE)</div></div>
+      <div class="field"><div class="field-label">Modo</div><div class="field-value">Remoto</div></div>
+      <div class="field"><div class="field-label">Horário</div><div class="field-value">30h por semana, horário flexível</div></div>
+      <div class="field"><div class="field-label">Bolsa</div><div class="field-value">Não informada: perguntar na primeira conversa</div></div>
+      <div class="field"><div class="field-label">Benefícios</div><div class="field-value">Seguro de vida, Wellhub</div></div>
+      <div class="field"><div class="field-label">Inscrições até</div><div class="field-value">04/12/2026</div></div>
+    </div>
+    <p><strong>Por que combina:</strong> 100% remoto e com horário flexível; aceita qualquer curso.</p>
+    <p><strong>Atenção:</strong> pede Pacote Office intermediário, que você não declara.</p>
+    <p><strong>Contato:</strong> sem contato nomeado; candidatura pela Gupy.</p>
+    <p class="link-line"><strong>Abrir vaga ›</strong> <a href="https://waycarbon.gupy.io/">https://waycarbon.gupy.io/</a></p>
+  </div>
+
+  <div class="card unconfirmed">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Tradutor(a) de Documentos</h2>
+        <p class="card-company">Empresa de localização</p>
+      </div>
+      <div class="card-badges"><span class="pill unconfirmed">Não confirmada</span><span class="pill fit">Fit 70</span></div>
+    </div>
+    <div class="fields">
+      <div class="field"><div class="field-label">Modo</div><div class="field-value">Remoto</div></div>
+      <div class="field"><div class="field-label">Horário</div><div class="field-value">Não informado</div></div>
+    </div>
+    <p><strong>Atenção:</strong> não consegui abrir a página da vaga. Por isso não tem kit.</p>
+    <p class="link-line"><strong>Abrir vaga ›</strong> <a href="https://example.com/vaga">https://example.com/vaga</a></p>
+    <p class="link-note">Página da vaga não abriu para mim; abra no navegador antes de se candidatar.</p>
+  </div>
+</section>
+
+<!-- 3, 4, 5: same card pattern, one page each -->
+<section class="page">
+  <h1 class="section-title">Seleções públicas</h1>
+  <p class="section-subtitle">Editais com inscrições abertas hoje.</p>
+  <p class="empty-note">Nenhuma seleção aberta em Florianópolis ou São José que aceite Letras.</p>
+</section>
+
+<!-- 6. CLOSE CALLS -->
+<section class="page">
+  <h1 class="section-title">Quase lá · rejeitadas por pouco</h1>
+  <p class="section-subtitle">Ficaram de fora por bolsa, horário, curso ou semestre. Vale você julgar.</p>
+
+  <div class="card rejected">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Estágio Administrativo (gabinete da presidência)</h2>
+        <p class="card-company">Nube · empresa confidencial</p>
+      </div>
+      <div class="card-badges"><span class="pill rejected">Rejeitada</span></div>
+    </div>
+    <div class="fields">
+      <div class="field"><div class="field-label">Modo</div><div class="field-value">Presencial, Estreito, Florianópolis</div></div>
+      <div class="field"><div class="field-label">Bolsa</div><div class="field-value">R$ 1.800 + VT</div></div>
+      <div class="field"><div class="field-label">Horário</div><div class="field-value">12h às 18h</div></div>
+      <div class="field"><div class="field-label">Cursos</div><div class="field-value">Qualquer nível superior</div></div>
+    </div>
+    <p><strong>Atenção:</strong> aceita qualquer curso, mas é à tarde, no horário das suas aulas.</p>
+    <p class="link-line"><strong>Abrir vaga ›</strong> <a href="https://www.nube.com.br/">https://www.nube.com.br/</a></p>
+  </div>
+</section>
+
+<!-- 7. ONE KIT PER PAGE -->
+<section class="page kit">
+  <h1 class="kit-title">Kit de candidatura · WayCarbon</h1>
+  <p class="kit-link"><a href="https://waycarbon.gupy.io/">Abrir vaga na Gupy</a></p>
+
+  <h3>Título do currículo</h3>
+  <p>Estudante de Letras-Inglês na UFSC | Japonês nativo e inglês avançado | Organização e resolução de problemas</p>
+
+  <h3>Quatro competências em destaque</h3>
+  <p>Japonês nativo · Inglês avançado · Organização · Aprendizado rápido</p>
+
+  <h3>Resumo (substitui o objetivo profissional)</h3>
+  <p>Estudante do 2º semestre de Letras-Inglês na UFSC, falante nativa de japonês, com português fluente e inglês avançado. ...</p>
+
+  <h3>Ordem dos bullets (copiados do seu currículo)</h3>
+  <p class="job-heading">Retail Associate</p>
+  <ul>
+    <li>Development of communication, organizational, and problem-solving skills.</li>
+    <li>Work in a multicultural environment, using the Japanese language.</li>
+  </ul>
+
+  <h3>Habilidades e Competências</h3>
+  <p><strong>Organização</strong> · <strong>Aprendizado rápido</strong> · Trabalho em equipe · Comunicação interpessoal</p>
+
+  <h3>Idiomas</h3>
+  <p>Japonês: nativo · Português: fluente · <strong>Inglês: avançado</strong></p>
+
+  <h3>Carta de apresentação</h3>
+  <div class="letter">
+    <p>Olá, equipe WayCarbon,</p>
+    <p>Gostaria de me candidatar ao Estágio em Sustentabilidade. ...</p>
+    <p>Atenciosamente,<br>Giovana Sato Fudo</p>
+  </div>
+
+  <h3>Mensagem para o recrutador depois de se candidatar</h3>
+  <p>Olá! Acabei de me candidatar ao Estágio em Sustentabilidade da WayCarbon. ...</p>
+
+  <h3>Para quem mandar</h3>
+  <p>Não há contato nomeado na vaga. Candidate-se pela Gupy e, no LinkedIn, procure Talent Acquisition da WayCarbon.</p>
+
+  <h3>Esteja pronta para</h3>
+  <ul>
+    <li>Pacote Office intermediário é requisito e você não declara.</li>
+  </ul>
+</section>
+
+<!-- 8. RUN LOG -->
+<section class="page log">
+  <h1 class="section-title">Registro da execução</h1>
+  <p class="section-subtitle">&nbsp;</p>
+  <p><strong>Chamadas:</strong> cerca de 300 de um limite de 400.</p>
+  <p><strong>Fontes consultadas:</strong> Gupy, Indeed (via busca na web), Nube, CIEE, ...</p>
+  <p><strong>Fontes indisponíveis:</strong> Indeed bloqueia leitura direta (403); ...</p>
+  <p><strong>Memória:</strong> 14 vagas lidas, 9 puladas por já estarem na memória, 12 adicionadas.</p>
+  <p><strong>Premissas:</strong> ...</p>
+  <p><strong>Para a próxima rodada:</strong> ...</p>
+</section>
+</body>
+</html>

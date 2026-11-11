@@ -1,0 +1,150 @@
+/* Fixed style of the job report PDF (rendered by weasyprint).
+   The routine links this file; it must not be copied or changed by the run. */
+
+@page {
+  size: A4;
+  margin: 18mm 16mm 20mm 16mm;
+  @bottom-left {
+    content: element(footer);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 7pt;
+    color: #6b7280;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: "Noto Sans", sans-serif;
+    font-size: 7pt;
+    color: #6b7280;
+  }
+}
+
+
+html {
+  font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif;
+  font-size: 8.6pt;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+body { margin: 0; }
+
+a { color: #2563eb; word-break: break-all; }
+
+strong { font-weight: 700; }
+
+/* ---------------------------------------------------------------- pages */
+
+.page { page-break-before: always; }
+.page:first-child { page-break-before: auto; }
+
+.footer-text { position: running(footer); font-size: 7pt; color: #6b7280; }
+
+/* ---------------------------------------------------------------- cover */
+
+.cover-title { font-size: 19pt; font-weight: 700; margin: 0; }
+.cover-subtitle { color: #6b7280; font-size: 9pt; margin: 2pt 0 10pt; }
+
+.legend { margin-bottom: 12pt; }
+.legend-item { display: inline-block; color: #6b7280; font-size: 7.5pt; }
+
+.summary-box {
+  background: #eef2fb;
+  border: 1px solid #cdd8f6;
+  border-radius: 3pt;
+  padding: 8pt 10pt;
+  margin-bottom: 14pt;
+}
+.summary-box h2 { font-size: 11pt; margin: 0 0 4pt; }
+.summary-box p { margin: 0 0 4pt; }
+
+.start-box {
+  border: 1.2pt solid #2563eb;
+  border-radius: 3pt;
+  padding: 8pt 10pt;
+}
+.start-box h2 { font-size: 11pt; margin: 0 0 6pt; }
+.start-item { display: flex; padding: 6pt 0; border-bottom: 1px solid #e3e6ec; }
+.start-item:last-of-type { border-bottom: none; }
+.start-number { color: #2563eb; font-size: 15pt; font-weight: 700; width: 14pt; }
+.start-title { font-weight: 700; }
+.start-detail { color: #6b7280; font-size: 7.8pt; }
+.start-note { color: #6b7280; font-size: 7.5pt; margin: 4pt 0 0; }
+
+/* ---------------------------------------------------------------- sections */
+
+.section-title { font-size: 13pt; font-weight: 700; margin: 0; }
+.section-subtitle { color: #6b7280; font-size: 8pt; margin: 1pt 0 10pt; }
+.empty-note { color: #6b7280; font-style: italic; }
+
+/* ---------------------------------------------------------------- role cards */
+
+.card {
+  background: #f7f8fb;
+  border: 1px solid #e3e6ec;
+  border-left: 3pt solid #4b5563;
+  border-radius: 2pt;
+  padding: 8pt 10pt;
+  margin-bottom: 12pt;
+  page-break-inside: avoid;
+}
+.card.verified { border-left-color: #1e7d4a; }
+.card.unconfirmed { border-left-color: #9a6700; }
+.card.rejected { border-left-color: #b42318; }
+.card.reported { border-left-color: #4b5563; }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.card-title { font-size: 10.5pt; font-weight: 700; margin: 0; }
+.card-company { color: #6b7280; font-size: 8pt; margin: 1pt 0 0; }
+.card-badges { display: flex; flex-direction: column; align-items: flex-end; min-width: 72pt; }
+
+.pill {
+  display: inline-block;
+  border-radius: 8pt;
+  padding: 1.5pt 0;
+  width: 72pt;
+  text-align: center;
+  font-size: 7pt;
+  font-weight: 700;
+}
+.pill.verified { background: #e2f4e8; color: #1e7d4a; }
+.pill.unconfirmed { background: #fdf0d2; color: #9a6700; }
+.pill.rejected { background: #fde3e3; color: #b42318; }
+.pill.reported { background: #e9ecf1; color: #4b5563; }
+.pill.fit { background: #e9ecf1; color: #1f2937; }
+
+.fields { margin: 8pt 0 4pt; font-size: 0; }
+.field { display: inline-block; vertical-align: top; width: 50%; padding-right: 8pt; margin-bottom: 5pt; box-sizing: border-box; font-size: 8.6pt; }
+.field-label { color: #6b7280; font-size: 6.6pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3pt; }
+.field-value { font-size: 8.4pt; }
+
+.card p { margin: 0 0 3pt; }
+.card .link-line { margin-top: 5pt; }
+.card .link-line strong { color: #2563eb; }
+.card .link-note { color: #6b7280; font-size: 7.4pt; }
+
+/* ---------------------------------------------------------------- application kits */
+
+.kit-title { font-size: 13pt; font-weight: 700; margin: 0; }
+.kit-link { font-size: 8pt; margin: 1pt 0 10pt; }
+.kit h3 { color: #2563eb; font-size: 9.4pt; margin: 10pt 0 2pt; }
+.kit p { margin: 0 0 3pt; }
+.kit .job-heading { font-size: 7.8pt; font-weight: 700; text-transform: uppercase; margin: 6pt 0 1pt; }
+.kit ul { margin: 0 0 4pt; padding-left: 0; list-style: none; }
+.kit li::before { content: "• "; }
+.kit .letter { padding-left: 10pt; }
+.kit .letter p { margin: 0 0 6pt; }
+
+/* ---------------------------------------------------------------- run log */
+
+.log p { margin: 0 0 6pt; }
+
+/* spacing that would be `gap` (not supported by weasyprint 57) */
+.legend-item { margin-right: 10pt; }
+.legend-item .pill { margin-right: 5pt; }
+.start-number { margin-right: 10pt; }
+.card-header > div:first-child { margin-right: 8pt; }
+.card-badges .pill + .pill { margin-top: 3pt; }
+.legend .pill { width: auto; padding: 1.5pt 7pt; }
+.legend-item { margin-right: 14pt; }
+.legend { white-space: nowrap; }
+.legend-item { margin-right: 6pt; font-size: 7pt; }
