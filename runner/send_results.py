@@ -6,6 +6,8 @@ when it contains:
                Written by run.sh only after the Claude process has exited, so the PDF is never
                picked up half-written.
   CANCELADO -> the cancellation reason as text (plus the partial PDF, when there is one)
+Only the final report (PRONTO) goes to VAGAS_RECIPIENT; cancellations and failure notices go to
+the personalWhats default chat (group "Claudio"), so the report recipient only gets the PDF.
 After queueing, ENVIADO is written with the message id, so the folder is never sent twice.
 Content the interface refuses (ex.: PDF over the size limit) can never be sent: the reason goes
 to ENVIO_FALHOU and a short text message reports it.
@@ -75,7 +77,7 @@ def send_result(whats: InterfacePersonalWhats, result_dir: Path, recipient: Opti
             attachments=[Attachment.from_path(pdf_path, caption=caption)],
         )
 
-    attachments = []
+    attachments = []  # CANCELADO: always to the default chat, never to the report recipient
     if pdf_path is not None:
         attachments.append(
             Attachment.from_path(pdf_path, caption="Relatório parcial gerado antes da falha.")
@@ -83,7 +85,6 @@ def send_result(whats: InterfacePersonalWhats, result_dir: Path, recipient: Opti
     return whats.send_message(
         SOURCE,
         text=read_text(result_dir / "CANCELADO"),
-        recipient=recipient,
         attachments=attachments,
     )
 
@@ -101,7 +102,6 @@ def send_pending_results(whats: InterfacePersonalWhats, recipient: Optional[str]
                     f"Rotina de vagas: o resultado {result_dir.name} não pôde ser enviado "
                     "(conteúdo recusado pela interface). Veja ENVIO_FALHOU na pasta do resultado."
                 ),
-                recipient=recipient,
             )
             continue
         write_marker(result_dir, "ENVIADO", message_id)

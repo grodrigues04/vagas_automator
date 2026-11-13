@@ -31,7 +31,7 @@ cp .env.example .env   # token do Claude, MONGO_URI, ENCRYPTION_PASSWORD, VAGAS_
 docker compose up -d --build
 ```
 
-`VAGAS_RECIPIENT` vazio envia para o contato padrão do personalWhats.
+`VAGAS_RECIPIENT` define quem recebe o PDF final (vazio = contato padrão do personalWhats, o grupo Claudio). Cancelamentos e avisos de falha sempre vão para o contato padrão.
 
 ## Comandos úteis
 
